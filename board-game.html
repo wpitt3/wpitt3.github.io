@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Board Games</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div id="main" class="board-games">
+      <div class="header">
+        <h1><b>Using Neural Nets and MCST to play board games</b></h1>
+        <h2><b>wpitt3@gmail.com <a href="https://www.linkedin.com/in/willpitt3/">Linkedin</a> <a href="https://github.com/wpitt3/connect4">Github</a></b></h2>
+      </div>
+      <div class="content">
+        <h2 id="about-me" class="content-subhead">Azul</h2>
+        <p>Azul is a game consisting of several rounds where each player will select tiles from a stochastically generated shared pool. Each player has perfect knowledge of the state of the game during the round, but has imperfect knowledge of the tiles that will be available during subsequent rounds. The game is scored based upon arrangements of tiles on the players board and highest scoring arrangements take multiple rounds to complete. Each player is trying to maximise their score in each round, as well as maximising their potential for a high score in later rounds.
+        <h2 id="about-me" class="content-subhead">MCST</h2>
+        <p>After experimenting with using Monte Carlo Search Trees (MCSTs) to play Connect 4, I wanted to use MCST to play more complicated games such as Azul. Azul is an imperfect information game as random tiles are drawn at the start of each round. But for each individual round there is perfect information of what is possible during that round.
+        <p>If I chose to expand the MCST past the end of each round, then there were a very large number of possible moves and possible states of the board. This meant that there were too many nodes and the MCST could not produce useful results with the processing power that I had. The  solution for this was to no longer expand nodes at the end of each round, but to rollout the game from that node to the terminal state. This created a score for each final state of that round which would approximate the value of that state. The MCST would then try to pick moves to optimize the approximated value of the semi terminal state.
+        <h2 id="about-me" class="content-subhead">Future Improvements</h2>
+        <p>This seemed to be an ideal opportunity for using a value network, using neural nets to score the state at the end of each round. This was how far I got with this project. I was not sure whether I should have Golang running TensorFlow or simply create a heuristic to access the state of the board and decide how well a player is doing. A heuristic should not be difficult to create and could be tested by running two MCST against each other using two different heuristics.
+      </div>
+
+
+
+
+
+
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>

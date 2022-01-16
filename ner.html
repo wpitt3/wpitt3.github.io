@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Portfolio</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div id="main" class="get started">
+      <div class="header">
+        <h1><b>Named Entity Recognition</b></h1>
+        <h2><b>wpitt3@gmail.com <a href="https://www.linkedin.com/in/willpitt3/">Linkedin</a> <a href="https://github.com/wpitt3/nlp">Github</a></b></h2>
+      </div>
+      <div class="content">
+        <h2 id="about-me" class="content-subhead">Named Entity Recognition</h2>
+        <p>I grabbed some copyright free books that I had read and some children’s books so that I understood some of the story and also wasn’t going to spoil the plot for myself. I labeled the data by finding all of the characters in the book and storing their first names, surname and relations to other characters. The issue with these books is that copyright free books are usually quite old and so they use some different language to modern books. The modern copyright free books are often very simple and written for children, or amateur books which have spelling mistakes and misuse of language.
+        <p>I used nltk to tokenize the stories into sentences. I decided against removing stop words and stemming the words as I was planning on using a lemmatizer. I used spaCy to lemmatize the sentences; this also provided me with the syntactic dependency (dep) and the part of speech (pos) of every word. The lemma is the underlying meaning of each word. Syntactic dependency is the relationship with other words in the sentences, such as whether a word is the subject or object of the sentence. Examples of parts of speech are nouns, verbs and adjectives.
+        <p>When analysing the stories I concentrated on identifying characters by looking at words labelled as proper nouns by the lemmatizer. I stored labels produced by the lemmatizer of all proper nouns, as well as the labels of their prefixes and suffixes. The proper nouns were split, based upon whether I had labelled them as character names or not. This resulted in a series of frequency tables which could be used to determine the likelihood of a proper noun being the name of a character. An example of this is the lemma ‘say’ being a suffix of a character name in 4533 of 50000 cases, whereas it is a suffix of non character names in 3 of 10000 cases. Bayes theorem can then be used to calculate the likelihood of the proper noun being a character or not.
+      </div>
+
+
+
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>

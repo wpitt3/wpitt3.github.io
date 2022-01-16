@@ -1,0 +1,133 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  text-size-adjust: 100%;
+  font: 100% system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.6;
+  box-sizing: border-box;
+  font-weight: 350;
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: .01em;
+  color: #777;
+}
+
+
+b,
+strong {
+  font-weight: bolder
+}
+
+* {
+  box-sizing: border-box
+}
+
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0
+}
+
+.header,
+.l-box {
+  padding: 1em
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #4b4b4b;
+  font-weight: 700
+}
+
+h2 {
+  margin: 5px 0px 20px;
+}
+
+h3 {
+  font-size: 1.25em;
+  margin: 20px 0px 5px;
+}
+
+h5 {
+  margin: 1px;
+}
+
+p {
+  margin: 5px 0px 10px;
+}
+
+a {
+ text-decoration: none
+}
+a:visited {
+  color: #265778
+}
+
+.header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-family: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: .05em;
+  margin: 0 auto;
+  max-width: 768px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 300%
+}
+
+.header h1,
+.header h2 {
+  font-weight: 100;
+  margin: 0
+}
+
+.header h2 {
+  color: #666;
+  font-size: 125%;
+  line-height: 1.5
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 768px;
+  padding: 10px 0px;
+  line-height: 1.8
+}
+
+.content .content-subhead {
+  color: #888;
+  font-weight: 300;
+  margin: 30px 0 10px;
+}
+
+.footer {
+  border-top: 1px solid #eee;
+  max-width: 768px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+@media screen and (min-width:48em) {
+  .content,
+  .header {
+    padding-left: 2em;
+    padding-right: 2em
+  }
+  .header h1 {
+    font-size: 320%
+  }
+  .header h2 {
+    font-size: 128%
+  }
+  .content p {
+    font-size: 1.125em
+  }
+}
