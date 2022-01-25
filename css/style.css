@@ -115,6 +115,44 @@ a:visited {
   padding: 20px;
 }
 
+.image {
+  margin: 20px auto;
+  box-shadow: 0px 0px 10px 3px #eee;
+}
+
+.small-image {
+  margin: 20px auto;
+  max-width: 350px;
+  max-height: 768px;
+  box-shadow: 0px 0px 10px 3px #eee;
+}
+
+.big-image {
+  margin: 20px auto;
+  width: 1200px;
+  margin-left: -216px;
+  max-height: 768px;
+  box-shadow: 0px 0px 10px 3px #eee;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.code {
+  margin: 20px auto;
+  max-width: 660px;
+  max-height: 768px;
+  background: #f0f0ff;
+}
+
+pre {
+  padding: 10px 14px;
+}
+
+
+
 @media screen and (min-width:48em) {
   .content,
   .header {

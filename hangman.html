@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Impossible Hangman</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div id="main" class="board-games">
+      <div class="header">
+        <h1><b>Impossible Hangman</b></h1>
+        <h2><b>wpitt3@gmail.com <a href="https://www.linkedin.com/in/willpitt3/">Linkedin</a> <a href="https://github.com/wpitt3/hangman">Github</a></b></h2>
+      </div>
+      <div class="content">
+        <h2 class="content-subhead">What is Hangman?</h2>
+        <p>Hangman is a game where one player chooses a word of a set length and the other player must guess letters to try to work out what the word is.
+        <p>In my version of hangman the application chooses the word and the player guesses letters to find that word. However the application cheats and changes the word to maximise the number of guesses that the player has to make.
+        <h2 class="content-subhead">How it works</h2>
+        <p>The game starts with an empty number of spaces which show the length of a word and the player guesses a letter.
+        <div class="image small-image"><img src="./resources/hangman1.png"></div>
+        <p>When a player guesses a letter, the app looks at placing the letter in each of the available positions or not in the word at all. The app then chooses the position, which will maximise the number of remaining words.
+        <p> Let's say, the player guesses the letter <b>'A'</b> on an empty board of 6 letters. The app tries to maximise the number of words remaining as this is assumed to make the player use more guesses and more 'lives'. In this example, if the app chooses that the word does not contain <b>'A'</b> this maximises the number of words remaining. There were 15290 six-letter words in the entire dictionary and 8691 words will remain without and <b>'A'</b> in them.
+        <div class="code">
+<pre><code>Total words: 15290
+Position 1: 575
+Position 2: 2192
+Position 3: 1124
+Position 4: 832
+Position 5: 786
+Position 6: 222
+Not in word: 8691 <- most words remaining
+</code></pre>
+        </div>
+        <p>Play carries on in the same manner, with the player trying to guess letters which are most likely to appear in the word and the app trying to keep as many words remaining as possible.
+        <p><b>'A'</b>, <b>'I'</b>, and <b>'U'</b> have all been guessed by the player and they are all not in the word. The player then guesses the letter <b>'E'</b> and it gets placed in the 5th space.
+        <div class="image small-image"><img src="./resources/hangman2.png"></div>
+        <div class="code">
+<pre><code>Total words: 3125
+Position 1: 42
+Position 2: 239
+Position 3: 127
+Position 4: 235
+Position 5: 785 <- most words remaining
+Position 6: 108
+Not in word: 549
+</code></pre>
+        </div>
+        <h2 class="content-subhead">Repeat Characters</h2>
+        <p>The above examples only account for words where a letter only appears once in each word. This would limit the dictionary and make the hangman game much easier for the player and so double and triple letters must be accounted for. Each permutation of the given letter and the number of words remaining for it should be calculated.
+        <p>The above example with <b>'A'</b>, <b>'I'</b>, and <b>'U'</b> has 1536 remaining words with 1 <b>'E'</b>, 887 with 2 <b>'E'</b>s and 148 with 3 <b>'E'</b>s.
+        <div class="code">
+<pre><code>Pattern _E__E_ : 356
+Pattern _E_E__ : 136
+Pattern __EE__ : 82
+...
+Pattern _EE_E_ : 70
+Pattern _E_EE_ : 19
+Pattern _E_E_E : 15
+...
+</code></pre>
+        </div>
+        <p>These are not the best options for this example, but adding repeat letters can be the best option when fewer words remain.
+        <h2 class="content-subhead">Minimax Tree</h2>
+        <p>In isolation, the app placing a letter in a specific location on a turn may keep the most words remaining after that turn. However it may give the player options to dramatically decreases the number of remaining words in subsequent turns. To make the game harder for the player a minimax tree search can be used to look at future moves that the player may make. When the player guesses a letter, the app can examine letter positions and calculate which other letter would most greatly reduce the number of words remaining in subsequent turns. This simulates how a 'perfect' player would play the game and the app can then look several moves into the future to optimise against perfect play.
+        <div class="image big-image"><img src="./resources/hangman3.png"></div>
+        <p>Let's say, the player guesses the letter <b>'E'</b>, if the app put <b>'E'</b> in position 5 (left hand branch), then the player could guess another letter such as <b>'R'</b> or <b>'S'</b>. The most words remaining if <b>'R'</b> was guessed would be 413, when it is not inside the word. The most words remaining if <b>'S'</b> was guessed would be 473. The 'perfect' player would guess <b>'R'</b> to minimise the remaining words. If the <b>'E'</b> was not included in the word (right hand branch), then the best move for the player next turn would be to guess the letter <b>'S'</b> resulting in 208 words remaining. Therefore the app should choose the left hand branch as there will be more words remaining on subsequent turns.
+        <p>This method can be extended for several moves to look far into the future, to make the game as hard as possible for the player.
+        <h2 class="content-subhead">Future Improvements</h2>
+        <p> I have added options to change the number of lives and the length of the words that the player can guess, but more dictionaries could be added for different word lengths or languages. The back end of the application is currently stateful which does not allow multiple players running simultanious games. More dictionaries could be added for different word lengths or languages.
+      </div>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>
